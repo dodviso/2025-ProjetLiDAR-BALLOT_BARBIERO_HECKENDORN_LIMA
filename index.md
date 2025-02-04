@@ -14,7 +14,7 @@ Tous les matériaux nécéssaires à ce tutoriel sont disponibles sur le dépôt
 
 ---
 
-## 📌 Table des matières
+## Table des matières
 {:toc}
 
 ---
