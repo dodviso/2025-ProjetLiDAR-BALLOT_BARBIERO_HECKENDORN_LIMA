@@ -15,20 +15,25 @@ Tous les matériaux nécéssaires à ce tutoriel sont disponibles sur le dépôt
 ---
 
 ## Table des matières
-{:toc}
+
+1. [Télécharger les données LiDAR](#télécharger-les-données-lidar)
+2. [Fusionner toutes les dalles LiDAR](#fusionner-toutes-les-dalles-lidar)
+3. [Installer le plug-in QGIS Whitebox Tools](#installer-le-plug-in-qgis-whitebox-tools)
 
 ---
 
-## Etape 1 : Télécharger les données LiDAR
+## Télécharger les données LiDAR
 
 L'IGN produit et diffuse une cartographie 3D de l'intégralité du sol et du sursol en données LiDAR.
 La couverture est presque complète, et vous pouvez suivre l'état d'avancement de l'acquisition de données LiDAR [sur cette page](https://macarte.ign.fr/carte/322ea69dab4c7e5afabc6ec7043b5994/acquisitionslidarhd).
 
 Pour télécharger des données, rendez-vous sur la [page LiDAR](https://geoservices.ign.fr/lidarhd) de l'IGN.
 
-Descendez jusqu'à **Nuages de points classés et modèles numériques**
+Descendez jusqu'à **Nuages de points classés et modèles numériques**.
+Vous trouverez l'interface de sélection des tuiles comme indiqué en [Figure 1](#fig-1).
 
-![carte tuiles](/images/carte_select_tuiles.png)
+![Carte de sélection des tuiles LiDAR](/images/carte_select_tuiles.png){: .fig #fig-1}
+_Figure 1 : Carte de sélection des tuiles LiDAR._
 
 Cherchez la zone sur laquelle vous souhaitez récupérer des données LiDAR
 
@@ -65,7 +70,7 @@ Vos dalles sont téléchargées dans votre dossier !
 ![tuiles téléchargées](/images/dalles_telechargees.png)
 
 
-## Etape 2 : Fusionner toutes les dalles LiDAR
+## Fusionner toutes les dalles LiDAR
 
 Pour traiter toutes ces dalles, on ne va pas s'amuser à les traiter une par une.
 
@@ -133,7 +138,7 @@ pdal pipeline merge_pipeline.json
 ```
 
 
-## Etape 3 : installer le plug-in QGIS Whitebox Tools
+## Installer le plug-in QGIS Whitebox Tools
 
 Aller dans le menu extensions de QGIS
 
