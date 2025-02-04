@@ -1,3 +1,9 @@
+---
+layout: default
+title: Tutoriel LiDAR
+description: "Génération d'un MNT avec Whitebox Tools sur QGIS"
+---
+
 # Tutoriel LiDAR : Génération d'un MNT avec Whitebox Tools sur QGIS
 
 Bienvenue dans ce tutoriel LiDAR !
@@ -5,6 +11,13 @@ Nous allons voir comment traiter une grosse quantité de dalles LiDAR, pour pouv
 Dans ce tutoriel, nous allons nous placer sur la commune de [Valdrôme](https://www.google.fr/maps/place/26310+Valdr%C3%B4me/@44.4966869,5.5400527,13z/data=!4m6!3m5!1s0x12cae603804a2bcb:0x408ab2ae4bfb590!8m2!3d44.504108!4d5.571565!16s%2Fm%2F03mhlq1?entry=ttu&g_ep=EgoyMDI1MDEyOS4xIKXMDSoASAFQAw%3D%3D), un petit village entouré de colines au coeur de la Drôme.
 
 Tous les matériaux nécéssaires à ce tutoriel sont disponibles sur le dépôt Github associé à cette page, mais vous pouvez très bien le reproduire en sélectionnant vos propres tuiles LiDAR.
+
+---
+
+## 📌 Table des matières
+{:toc}
+
+---
 
 ## Etape 1 : Télécharger les données LiDAR
 
@@ -120,12 +133,12 @@ pdal pipeline merge_pipeline.json
 ```
 
 
-## Etape 2 : installer le plug-in QGIS Whitebox Tools
+## Etape 3 : installer le plug-in QGIS Whitebox Tools
 
-aller dans le menu extensions de QGIS
+Aller dans le menu extensions de QGIS
 
-installer l'extension Whitebox Tools
+Installer l'extension Whitebox Tools
 
-ouvrir lidar tin gridding
+Ouvrir lidar tin gridding
 ![image](/images/lidar_tin_gridding.png)
 
