@@ -37,15 +37,18 @@ _Figure 1 : Carte de sélection des tuiles LiDAR._
 
 Cherchez la zone sur laquelle vous souhaitez récupérer des données LiDAR
 
-![zoom carte tuiles](/images/zoom_carte_select_tuiles.png)
+![Zoom sur la carte des tuiles LiDAR](/images/zoom_carte_select_tuiles.png){: .fig #fig-2}  
+_Figure 2 : Zoom sur la carte des tuiles LiDAR._
 
 Avec l'outil Polygone ou Rectangle, tracez l'emprise sur laquelle vous souhaitez télécharger les dalles LiDAR.
 
-![selection tuiles](/images/select_tuiles.png)
+![Sélection des tuiles LiDAR](/images/select_tuiles.png){: .fig #fig-3}  
+_Figure 3 : Sélection des tuiles LiDAR._
 
 Téléchargez le fichier .txt contenant la liste des liens de téléchargement pour toutes les tuiles.
 
-![télécharger tuiles](/images/download_tuiles.png)
+![Téléchargement de la liste des tuiles](/images/download_tuiles.png){: .fig #fig-4}  
+_Figure 4 : Téléchargement de la liste des tuiles._
 
 L'IGN conseille d'utiliser une extension de notre navigateur pour télécharger des fichiers en masse.
 Toutefois, ce genre d'outil n'est pas toujours très modulable ou facile d'utilisation, alors nous mettons à votre disposition [ce script python](https://github.com/dodviso/tuto_lidar/blob/master/download_tiles.py) pour télécharger toutes vos tuiles à partir du fichier `liste_dalle.txt` dans le dossier de votre choix.
@@ -67,7 +70,8 @@ Ensuite, exécutez le script selon vos habitudes, VS Code, Spyder, terminal ..
 Le processus de téléchargement peut être un peu long selon la quantité de tuiles téléchargées.
 
 Vos dalles sont téléchargées dans votre dossier !
-![tuiles téléchargées](/images/dalles_telechargees.png)
+![Tuiles téléchargées](/images/dalles_telechargees.png){: .fig #fig-5}  
+_Figure 5 : Tuiles téléchargées après le téléchargement._
 
 
 ## Fusionner toutes les dalles LiDAR
@@ -136,6 +140,9 @@ Bien entendu, il faut avoir navigué dans le terminal pour rejoindre le dossier 
 ```
 pdal pipeline merge_pipeline.json
 ```
+
+A l'issue de cette étape, toutes vos dalles sont fusionnées !
+Le fichier résultant devrait faire plusieurs dizaines de Go.
 
 
 ## Installer le plug-in QGIS Whitebox Tools
