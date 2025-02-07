@@ -147,10 +147,128 @@ Le fichier résultant devrait faire plusieurs dizaines de Go.
 
 ## Installer le plug-in QGIS Whitebox Tools
 
-Aller dans le menu extensions de QGIS
+Cette étape n'est pas la plus facile, le plug-in Whitebox Tools ne fonctionne pas tout à fait comme les autres plug-in QGIS.
+Il s'agit d'un outil initialement en ligne de commande, et pour s'en servir dans QGIS il faut d'abord l'installer en ligne de commande.
 
-Installer l'extension Whitebox Tools
+Commencez par installer le plug-in sur QGIS
+![plug-in qgis](/images/download_whitebox.png){: .fig #fig-6}  
+_Figure 6 : Téléchargement du plug-in Whitebox Tools sur QGIS._
 
-Ouvrir lidar tin gridding
-![image](/images/lidar_tin_gridding.png)
+Vous pouvez essayer de lancer n'importe quel traitement, vous verrez que cela ne fonctionne pas.
 
+Installons donc l'exécutable Whitebox Tools.
+
+Rendez-vous sur le site de la [Whitebox Geospatial Incorporated](https://www.whiteboxgeo.com/download-whiteboxtools/).
+
+Vous allez croire en premier lieu que c'est payant, mais en fait n'ayez crainte, vous pouvez bien le télécharger pour 0$.
+
+![site whitebox](/images/download_exe_whitebox.png){: .fig #fig-7}  
+_Figure 7 : Téléchargement de l'outil WhiteboxTools._
+
+En cliquant sur download, vous serez ensuite invités à télécharger la version compilée de l'outil dans le format adapté à votre système d'exploitation. 
+Choisissez celle qui convient, et suivez les instructions suivantes qui correpondent.
+
+### Installation pour Windows
+
+Décompressez l'archive zip dans un dossier comme `C:\WhiteboxTools\`.
+
+Ensuite, aller dans QGIS.
+Onglet "Préférences" > "Options"
+Option "Traitements" > "Fournisseur de traitement" > "WhiteboxTools executable"
+
+Dans la zone prévue à cet effet, renseignez le chemin d'accès à l'exécutable WhiteboxTools.
+
+![exe whitebox](/images/path_exe_whitebox.png){: .fig #fig-7}  
+_Figure 7 : Paramétrage du chemin d'accès de l'exécutable WhiteboxTools dans QGIS._
+
+Faites 'ok' et redémarrez QGIS.
+
+Le plug-in WhiteboxTools est prêt à fonctionner sur QGIS !
+
+### Installation pour MacOS/Linux
+
+Dans votre répertoire utilisateur, exécutez :
+```bash
+mkdir -p ~/WhiteboxTools
+```
+Pour créer un dossier associé à l'outil.
+
+
+Ensuite, exécutez :
+```bash
+unzip ~/Downloads/WhiteboxTools_darwin_amd64.zip -d ~/WhiteboxTools/
+```
+A adapter avec le nom de votre version.
+
+
+Ensuite, il faut rendre l'outil exécutable :
+```bash
+chmod +x ~/WhiteboxTools/WhiteboxTools_darwin_amd64/WBT/whitebox_tools
+```
+
+Vérifiez que l'outil est bien installé en tapant :
+```bash
+ ~/WhiteboxTools/WhiteboxTools_darwin_amd64/WBT/whitebox_tools --version
+```
+
+Si cela vous affiche la version, c'est que c'est bon !
+
+Sur mac, ce popup risque de s'afficher :
+
+![gatekeeper](/images/mac_gatekeeper.png){: .fig #fig-8}  
+_Figure 8 : Blocage sur MacOS de l'utilisation d'un logiciel extérieur._
+
+Pour contourner ce problème, allez dans "Réglages Système" > "Confidentialité et Sécurité"
+
+Et en bas de la page, vous trouverez :
+![contourner autorisation](/images/mac_autorisation.png){: .fig #fig-9}  
+_Figure 9 : Contourner le blocage d'un logiciel extérieur._
+
+Cliquez sur "Autoriser quand même".
+
+Ensuite, relancez
+```bash
+ ~/WhiteboxTools/WhiteboxTools_darwin_amd64/WBT/whitebox_tools --version
+```
+
+Et cette fois vous aurez :
+![gatekeeper autorisé](/images/mac_autorise.png){: .fig #fig-10}  
+_Figure 10 : Blocage d'un logiciel extérieur avec possibilité de contournement._
+Et vous pouvez cliquer sur "Ouvrir quand même".
+
+Les informations relatives à la version s'afficheront enfin dans votre terminal.
+
+
+Ensuite, aller dans QGIS.
+Onglet "Préférences" > "Options"
+Option "Traitements" > "Fournisseur de traitement" > "WhiteboxTools executable"
+
+Dans la zone prévue à cet effet, renseignez le chemin d'accès à l'exécutable WhiteboxTools.
+
+![exe whitebox](/images/path_exe_whitebox.png){: .fig #fig-7}  
+_Figure 7 : Paramétrage du chemin d'accès de l'exécutable WhiteboxTools dans QGIS._
+
+Faites 'ok' et redémarrez QGIS.
+
+Le plug-in WhiteboxTools est prêt à fonctionner sur QGIS !
+
+---
+
+Maintenant, tout est prêt pour produire un MNT dans de bonnes conditions.
+
+## Utilisation du plug-in Whitebox Tools - production d'un MNT
+
+
+Dans la boîte à outils QGIS, cherchez l'outil "LidarTINGridding".
+
+![lidartingridding](/images/tingridding_parametres.png){: .fig #fig-7}  
+_Figure 7 : Paramètres du traitement LidarTINGridding._
+
+Sélectionnez votre couche Lidar fusionnée précédemment.
+
+On souhaite produire un MNT, donc c'est la hauteur des points qui nous intéresse. On laisse donc l'option par défaut 'elevation' dans `interpolation parameter`. Cela indique à l'algorithme d'interpoler selon les valeurs d'altitude des points.
+
+
+
+
+1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18

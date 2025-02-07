@@ -64,7 +64,7 @@ if __name__ == "__main__":
     TILES_LIST = "liste_dalle.txt"
 
     # Dossier de téléchargement des tuiles
-    OUT_DIR = "/Users/d.ballot/Documents/PROJETS_SIGMA/tuto_lidar/QGIS/dalles_lidar"
+    OUT_DIR = "/Users/d.ballot/Documents/PROJETS_SIGMA/tuto_lidar/QGIS/dalles_lidar_copc_laz"
     
     MAX_WORKERS = 4  # Nombre de téléchargements en parallèle
     MAX_RETRIES = 5  # Nombre maximal de tentatives par fichier
