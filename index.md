@@ -309,4 +309,45 @@ Vous pouvez consulter les correpondances entre les codes et les classe sur [ce d
 
 Une fois ces paramètres configurés, vous pouvez exécuter le traitement en créant une couche temporaire, ou bien en indiquant directement
 l'emplacement de sauvegarde du fichier de résultat. Nous vous conseillons de l'enregistrer directement car le traitement va être
-un peu long, et de cette manière vous vous assurez de ne pas perdre le résultat en fermant QGIS par inadvertance à la fin.
+un peu long (1h30 pour 36 dalles, fichier .laz global de 14 Go), et de cette manière vous vous assurez de ne pas perdre le résultat en fermant QGIS par inadvertance à la fin.
+
+---
+
+Une fois le traitement terminé, QGIS vous affichera probablement ce message :
+
+![erreur reproj](/images/erreur_reproj.png){: .fig #fig-14}  
+_Figure 14 : Erreur de reprojection du MNT_
+
+Whitebox Tools ne conserve pas le système de projection initial des données LiDAR, et donc le MNT en sortie est sans projection, d'où le terme 'unnamed'.
+
+Pour résoudre ce problème définitivement, commencez par assigner la projection que vous souhaitez au MNT (ici 2154).
+
+![assigner proj](/images/reproj_2154.png){: .fig #fig-15}  
+_Figure 15 : Assigner la projection 2154_
+
+Ensuite, exportez le MNT projecté dans un nouveau fichier.
+
+![export 1](/images/export.png){: .fig #fig-16}  
+_Figure 16 : Exporter le MNT reprojeté_
+
+De cette manière, le fichier est enregistré avec la bonne projection, et le message ne s'affichera plus à chaque ouverture de QGIS.
+
+![export 2](/images/export2.png){: .fig #fig-17}  
+_Figure 17 : Sauvegarder le MNT reprojeté_
+
+---
+
+Voilà ! Vous avez un beau MNT.  
+
+Pour finir ce tutoriel, on peut ajouter un peu de symbologie à notre MNT pour le rendre plus joli.
+
+Avec le mode `ombrage`, on obtient avec les réglages par défaut ce genre de visulisation :
+
+![ombrages](/images/mnt_ombrages.png){: .fig #fig-18}  
+_Figure 18 : Symbologie en ombrages_
+
+
+Avec quelques paramétrages, on obtient une carte très jolie du MNT fusionné avec le fond de plan OSM :
+
+![ombages osm](/images/mnt_fusion_plan.png){: .fig #fig-19}  
+_Figure 19 : Symbologie en fusion avec le fond de plan_
