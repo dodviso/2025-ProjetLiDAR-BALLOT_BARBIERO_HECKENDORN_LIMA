@@ -318,7 +318,7 @@ Une fois le traitement terminé, QGIS vous affichera probablement ce message :
 ![erreur reproj](/images/erreur_reproj.png){: .fig #fig-14}  
 _Figure 14 : Erreur de reprojection du MNT_
 
-Whitebox Tools ne conserve pas le système de projection initial des données LiDAR, et donc le MNT en sortie est sans projection, d'où le terme 'unnamed'.
+_Whitebox Tools_ ne conserve pas le système de projection initial des données LiDAR, et donc le MNT en sortie est sans projection, d'où le terme 'unnamed'.
 
 Pour résoudre ce problème définitivement, commencez par assigner la projection que vous souhaitez au MNT (ici 2154).
 
