@@ -19,6 +19,7 @@ Tous les matériaux nécéssaires à ce tutoriel sont disponibles sur le dépôt
 1. [Télécharger les données LiDAR](#télécharger-les-données-lidar)
 2. [Fusionner toutes les dalles LiDAR](#fusionner-toutes-les-dalles-lidar)
 3. [Installer le plug-in QGIS Whitebox Tools](#installer-le-plug-in-qgis-whitebox-tools)
+4. [Production d'un MNT](#production-dun-mnt-avec-whitebox-tools)
 
 ---
 
@@ -172,14 +173,14 @@ Choisissez celle qui convient, et suivez les instructions suivantes qui correpon
 
 Décompressez l'archive zip dans un dossier comme `C:\WhiteboxTools\`.
 
-Ensuite, aller dans QGIS.
-Onglet "Préférences" > "Options"
+Ensuite, aller dans QGIS.  
+Onglet "Préférences" > "Options"  
 Option "Traitements" > "Fournisseur de traitement" > "WhiteboxTools executable"
 
 Dans la zone prévue à cet effet, renseignez le chemin d'accès à l'exécutable WhiteboxTools.
 
-![exe whitebox](/images/path_exe_whitebox.png){: .fig #fig-7}  
-_Figure 7 : Paramétrage du chemin d'accès de l'exécutable WhiteboxTools dans QGIS._
+![exe whitebox](/images/path_exe_whitebox.png){: .fig #fig-8}  
+_Figure 8 : Paramétrage du chemin d'accès de l'exécutable WhiteboxTools dans QGIS._
 
 Faites 'ok' et redémarrez QGIS.
 
@@ -215,14 +216,14 @@ Si cela vous affiche la version, c'est que c'est bon !
 
 Sur mac, ce popup risque de s'afficher :
 
-![gatekeeper](/images/mac_gatekeeper.png){: .fig #fig-8}  
-_Figure 8 : Blocage sur MacOS de l'utilisation d'un logiciel extérieur._
+![gatekeeper](/images/mac_gatekeeper.png){: .fig #fig-9}  
+_Figure 9 : Blocage sur MacOS de l'utilisation d'un logiciel extérieur._
 
 Pour contourner ce problème, allez dans "Réglages Système" > "Confidentialité et Sécurité"
 
 Et en bas de la page, vous trouverez :
-![contourner autorisation](/images/mac_autorisation.png){: .fig #fig-9}  
-_Figure 9 : Contourner le blocage d'un logiciel extérieur._
+![contourner autorisation](/images/mac_autorisation.png){: .fig #fig-10}  
+_Figure 10 : Contourner le blocage d'un logiciel extérieur._
 
 Cliquez sur "Autoriser quand même".
 
@@ -232,21 +233,21 @@ Ensuite, relancez
 ```
 
 Et cette fois vous aurez :
-![gatekeeper autorisé](/images/mac_autorise.png){: .fig #fig-10}  
-_Figure 10 : Blocage d'un logiciel extérieur avec possibilité de contournement._
+![gatekeeper autorisé](/images/mac_autorise.png){: .fig #fig-11}  
+_Figure 11 : Blocage d'un logiciel extérieur avec possibilité de contournement._
 Et vous pouvez cliquer sur "Ouvrir quand même".
 
 Les informations relatives à la version s'afficheront enfin dans votre terminal.
 
 
-Ensuite, aller dans QGIS.
-Onglet "Préférences" > "Options"
+Ensuite, aller dans QGIS.  
+Onglet "Préférences" > "Options"  
 Option "Traitements" > "Fournisseur de traitement" > "WhiteboxTools executable"
 
 Dans la zone prévue à cet effet, renseignez le chemin d'accès à l'exécutable WhiteboxTools.
 
-![exe whitebox](/images/path_exe_whitebox.png){: .fig #fig-7}  
-_Figure 7 : Paramétrage du chemin d'accès de l'exécutable WhiteboxTools dans QGIS._
+![exe whitebox](/images/path_exe_whitebox.png){: .fig #fig-12}  
+_Figure 12 : Paramétrage du chemin d'accès de l'exécutable WhiteboxTools dans QGIS._
 
 Faites 'ok' et redémarrez QGIS.
 
@@ -256,19 +257,40 @@ Le plug-in WhiteboxTools est prêt à fonctionner sur QGIS !
 
 Maintenant, tout est prêt pour produire un MNT dans de bonnes conditions.
 
-## Utilisation du plug-in Whitebox Tools - production d'un MNT
+## Production d'un MNT avec Whitebox Tools
 
+Dans la boîte à outils QGIS, cherchez l'outil `LidarTINGridding`.
 
-Dans la boîte à outils QGIS, cherchez l'outil "LidarTINGridding".
-
-![lidartingridding](/images/tingridding_parametres.png){: .fig #fig-7}  
-_Figure 7 : Paramètres du traitement LidarTINGridding._
+![lidartingridding](/images/tingridding_parametres.png){: .fig #fig-13}  
+_Figure 13 : Paramètres du traitement LidarTINGridding._
 
 Sélectionnez votre couche Lidar fusionnée précédemment.
 
-On souhaite produire un MNT, donc c'est la hauteur des points qui nous intéresse. On laisse donc l'option par défaut 'elevation' dans `interpolation parameter`. Cela indique à l'algorithme d'interpoler selon les valeurs d'altitude des points.
+On souhaite produire un MNT, c’est-à-dire une surface qui représente uniquement le terrain,
+sans la végétation ni les bâtiments. Pour cela, il faut interpoler les altitudes des points LiDAR,
+c’est pourquoi on garde l’option `elevation` dans `interpolation parameter`.
+Cette option indique à l’algorithme qu’il doit construire la surface en fonction des valeurs d’altitude des points.
 
+Ensuite, pour l’option `points returns included`, on choisit `last`. Un signal LiDAR peut être réfléchi plusieurs fois
+avant d’atteindre le sol. Le premier retour (first) correspond à la première surface rencontrée,
+souvent la cime des arbres ou le toit des bâtiments. Le dernier retour (last), lui,
+correspond à la surface la plus basse touchée, donc généralement le sol. Comme on cherche à produire un MNT et non un MNS,
+on sélectionne uniquement les last returns afin d’exclure les objets en hauteur et ne garder que le relief du terrain.
 
+Enfin, pour obtenir un MNT précis, il est important de filtrer les points qui ne correspondent pas au sol.
+Les données LiDAR sont classifiées selon différents types d’objets, et certaines classes doivent être exclues
+pour éviter d’intégrer des éléments indésirables dans le modèle.
+Ici, on exclut les classes :
+```
+1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18
+```
 
+Qui correspondent notamment aux points non classifiés, à la végétation de différentes hauteurs, aux bâtiments,
+aux ponts ou encore aux objets artificiels. En filtrant ces classes, on s’assure de ne conserver que les points
+réellement situés au niveau du sol, ce qui permet d’obtenir un MNT fidèle à la réalité topographique.
 
-1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
+---
+
+Une fois ces paramètres configurés, vous pouvez lancer le traitement en créant une couche temporaire, ou bien en indiquant directement
+l'emplacement de sauvegarde du fichier de résultat. Nous vous conseillons de l'enregistrer directement car le traitement va être
+un peu long, et de cette manière vous vous assurez de ne pas perdre le résultat en fermant QGIS par inadvertance à la fin.
