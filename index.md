@@ -6,7 +6,7 @@ description: "Génération d'un MNT avec Whitebox Tools sur QGIS"
 
 
 
-# Tutoriel LiDAR : Génération d'un MNT avec Whitebox Tools sur QGIS
+# Tutoriel LiDAR : Génération d'un MNT avec Whitebox Tools sur QGIS 
 
 Bienvenue dans ce tutoriel LiDAR !
 Nous allons voir comment traiter une grosse quantité de dalles LiDAR, pour pouvoir générer un MNT à une échelle communale.
