@@ -341,7 +341,7 @@ Voilà ! Vous avez un beau MNT.
 
 Pour finir ce tutoriel, on peut ajouter un peu de symbologie à notre MNT pour le rendre plus joli.
 
-Avec le mode `ombrage`, on obtient avec les réglages par défaut ce genre de visulisation :
+Avec le mode `ombrage`, on obtient avec les réglages par défaut ce genre de visualisation :
 
 ![ombrages](/images/mnt_ombrages.png){: .fig #fig-18}  
 _Figure 18 : Symbologie en ombrages_
@@ -351,3 +351,5 @@ Avec quelques paramétrages, on obtient une carte très jolie du MNT fusionné a
 
 ![ombages osm](/images/mnt_fusion_plan.png){: .fig #fig-19}  
 _Figure 19 : Symbologie en fusion avec le fond de plan_
+
+Et voilà, à vous de jouer !
