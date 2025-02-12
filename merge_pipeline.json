@@ -1,0 +1,10 @@
+{
+    "pipeline": [
+        "dalles_lidar/*.laz",
+        {
+            "type": "writers.las",
+            "filename": "data/valdrome_lidar.laz",
+            "compression": "laszip"
+        }
+    ]
+}

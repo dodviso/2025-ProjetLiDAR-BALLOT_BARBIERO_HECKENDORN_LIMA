@@ -2,15 +2,19 @@
 layout: default
 title: Tutoriel LiDAR
 description: "Génération d'un MNT avec Whitebox Tools sur QGIS"
+authors: Doris Ballot, Audrey Barbiero, Robin Heckendorn, Lucas Lima
 ---
-
 
 
 # Tutoriel LiDAR : Génération d'un MNT avec Whitebox Tools sur QGIS
 
 Bienvenue dans ce tutoriel LiDAR !
-Nous allons voir comment traiter une grosse quantité de dalles LiDAR, pour pouvoir générer un MNT à une échelle communale.
+Nous allons voir comment traiter une grosse quantité de dalles LiDAR, pour pouvoir générer un MNT (Modèles numérique de terrain) à une échelle communale.
+[insérer une courte descritpion de ce qu'est un MNT et à quoi ça peut servir]
+
 Dans ce tutoriel, nous allons nous placer sur la commune de [Valdrôme](https://www.google.fr/maps/place/26310+Valdr%C3%B4me/@44.4966869,5.5400527,13z/data=!4m6!3m5!1s0x12cae603804a2bcb:0x408ab2ae4bfb590!8m2!3d44.504108!4d5.571565!16s%2Fm%2F03mhlq1?entry=ttu&g_ep=EgoyMDI1MDEyOS4xIKXMDSoASAFQAw%3D%3D), un petit village entouré de colines au coeur de la Drôme.
+
+[ajouter image de valdrome]
 
 Tous les matériaux nécéssaires à ce tutoriel sont disponibles sur le dépôt Github associé à cette page, mais vous pouvez très bien le reproduire en sélectionnant vos propres tuiles LiDAR.
 
@@ -48,7 +52,7 @@ Avec l'outil Polygone ou Rectangle, tracez l'emprise sur laquelle vous souhaitez
 ![Sélection des tuiles LiDAR](/images/select_tuiles.png){: .fig #fig-3}  
 _Figure 3 : Sélection des tuiles LiDAR_
 
-Téléchargez le fichier .txt contenant la liste des liens de téléchargement pour toutes les tuiles.
+Téléchargez le fichier .txt contenant la liste des liens de téléchargement pour toutes les tuiles, en cliquant sur le bouton représenté en [Figure 4](#fig-4).
 
 ![Téléchargement de la liste des tuiles](/images/download_tuiles.png){: .fig #fig-4}  
 _Figure 4 : Téléchargement de la liste des tuiles_
@@ -75,6 +79,7 @@ Le processus de téléchargement peut être un peu long selon la quantité de tu
 ---
 
 Vos dalles sont téléchargées dans votre dossier !
+
 ![Tuiles téléchargées](/images/dalles_telechargees.png){: .fig #fig-5}  
 _Figure 5 : Dalles téléchargées après le téléchargement_
 
@@ -98,6 +103,8 @@ Dans un terminal (PowerShell ou bash), exécutez:
 # Vérifier si Conda est bien installé
 conda --version
 ```
+
+Si Conda n'est pas installé dans votre environnement, vous pouvez vous référer à [cette documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) pour procéder à l'installation.  
 
 ```bash
 # Activer l'environnement de base de Conda
@@ -124,6 +131,8 @@ Rendez-vous dans votre répertoire de travail et créez un fichier `merge_pipeli
     ]
 }
 ```
+
+Vous pouvez également récupérer ce fichier [directement ici]()
 
 Cette pipeline va indiquer à PDAL de charger toutes vos dalles, puis de les écrire dans un nouveau fichier (filename) en format compressé.
 
@@ -181,17 +190,15 @@ Choisissez celle qui convient, et suivez les instructions suivantes qui vous cor
 
 ### Installation pour Windows
 
-[mettre à jour cette partie après test sur un Windows]
-
 Décompressez l'archive zip dans un dossier comme `C:\WhiteboxTools\`.
 
 Ensuite, allez dans QGIS.  
 Onglet "Préférences" > "Options"  
 Option "Traitements" > "Fournisseur de traitement" > "WhiteboxTools executable"
 
-Dans la zone prévue à cet effet, renseignez le chemin d'accès à l'exécutable WhiteboxTools.
+Dans la zone prévue à cet effet, renseignez le chemin d'accès à l'exécutable WhiteboxTools, comme indiqué en [Figure 8](#fig-8).
 
-![exe whitebox](/images/path_exe_whitebox.png){: .fig #fig-8}  
+![exe whitebox](/images/path_exe_whitebox_windows.jpeg){: .fig #fig-8}  
 _Figure 8 : Paramétrage du chemin d'accès de l'exécutable WhiteboxTools dans QGIS_
 
 Faites 'OK' et redémarrez QGIS.
