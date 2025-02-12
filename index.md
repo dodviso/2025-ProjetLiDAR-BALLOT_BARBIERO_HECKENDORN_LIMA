@@ -2,7 +2,6 @@
 layout: default
 title: Tutoriel LiDAR
 description: "Génération d'un MNT avec Whitebox Tools sur QGIS"
-authors: Doris Ballot, Audrey Barbiero, Robin Heckendorn, Lucas Lima
 ---
 
 
@@ -10,11 +9,14 @@ authors: Doris Ballot, Audrey Barbiero, Robin Heckendorn, Lucas Lima
 
 Bienvenue dans ce tutoriel LiDAR !
 Nous allons voir comment traiter une grosse quantité de dalles LiDAR, pour pouvoir générer un MNT (Modèles numérique de terrain) à une échelle communale.
-[insérer une courte descritpion de ce qu'est un MNT et à quoi ça peut servir]
+
+Un Modèle Numérique de Terrain est une représentation du relief sous forme de données altimétriques. Contrairement à un modèle qui inclurait les bâtiments ou la végétation, un MNT ne représente que le sol nu. Il peut est utilisé pour l'analyse du relief, la gestion des risques naturels, la modélisation hydraulique ou encore la planification d’aménagements.
 
 Dans ce tutoriel, nous allons nous placer sur la commune de [Valdrôme](https://www.google.fr/maps/place/26310+Valdr%C3%B4me/@44.4966869,5.5400527,13z/data=!4m6!3m5!1s0x12cae603804a2bcb:0x408ab2ae4bfb590!8m2!3d44.504108!4d5.571565!16s%2Fm%2F03mhlq1?entry=ttu&g_ep=EgoyMDI1MDEyOS4xIKXMDSoASAFQAw%3D%3D), un petit village entouré de colines au coeur de la Drôme.
 
-[ajouter image de valdrome]
+![valdrome](/images/valdrome.jpeg)
+_Village de Valdrôme au milieu des colines_
+
 
 Tous les matériaux nécéssaires à ce tutoriel sont disponibles sur le dépôt Github associé à cette page, mais vous pouvez très bien le reproduire en sélectionnant vos propres tuiles LiDAR.
 
@@ -361,3 +363,6 @@ Avec quelques paramétrages, on obtient une carte très jolie du MNT fusionné a
 _Figure 19 : Symbologie en fusion avec le fond de plan_
 
 Et voilà, à vous de jouer !
+
+---
+**Auteurs** : Doris Ballot, Audrey Barbiero, Robin Heckendorn, Lucas Lima.
