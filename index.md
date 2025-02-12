@@ -58,7 +58,7 @@ Téléchargez le fichier .txt contenant la liste des liens de téléchargement p
 _Figure 4 : Téléchargement de la liste des tuiles_
 
 L'IGN conseille d'utiliser une extension de votre navigateur pour télécharger des fichiers en masse.
-Toutefois, ce genre d'outil n'est pas toujours très modulable ou facile d'utilisation, alors nous mettons à votre disposition [ce script python](https://github.com/dodviso/tuto_lidar/blob/master/download_tiles.py) pour télécharger toutes vos tuiles à partir du fichier `liste_dalle.txt` dans le dossier de votre choix.
+Toutefois, ce genre d'outil n'est pas toujours très modulable ou facile d'utilisation, alors nous mettons à votre disposition [ce script python](https://github.com/dodviso/2025-ProjetLiDAR-BALLOT_BARBIERO_HECKENDORN_LIMA/blob/master/download_tiles.py) pour télécharger toutes vos tuiles à partir du fichier `liste_dalle.txt` dans le dossier de votre choix.
 
 Pour l'utiliser, il vous suffit de le télécharger, dans le bloc `if __name__ == "__main__":` de modifier les paramètres :
 
@@ -99,6 +99,7 @@ Donc nous allons utiliser PDAL qui est un outil open-source en ligne de commande
 Pour installer PDAL, nous recommandons de passer par Anaconda.
 
 Dans un terminal (PowerShell ou bash), exécutez:
+
 ```bash
 # Vérifier si Conda est bien installé
 conda --version
@@ -132,7 +133,7 @@ Rendez-vous dans votre répertoire de travail et créez un fichier `merge_pipeli
 }
 ```
 
-Vous pouvez également récupérer ce fichier [directement ici]()
+Vous pouvez également récupérer le fichier [directement ici](https://github.com/dodviso/2025-ProjetLiDAR-BALLOT_BARBIERO_HECKENDORN_LIMA/blob/master/merge_pipeline.json).
 
 Cette pipeline va indiquer à PDAL de charger toutes vos dalles, puis de les écrire dans un nouveau fichier (filename) en format compressé.
 
@@ -141,20 +142,18 @@ Bien entendu, les chemins renseignés dans "pipeline" et "filename" doivent êtr
 Exemple dans notre cas :
 
 ```
-└── 📁QGIS
+└── 📁TUTO_LiDAR
     └── 📁dalles_lidar
         └── LHD_FXX_0899_6379_PTS_C_LAMB93_IGN69.copc.laz
         └── ...
     └── 📁data
     └── merge_pipeline.json
-    └── tuto_lidar.qgz
 ```
 
 Avec une aussi grosse quantité de tuiles, il est important de rester en format compressé .laz, car si on essaie d'enregistrer le fichier fusionné en format .las (non compressé et donc plus rapide à lire par QGIS par la suite) le fichier résultant fera plusieurs centaines de Go, ce qui, sur la plupart des ordinateurs, risque de saturer complètement l'espace de stockage.
-C'est pour cette raison que l'on passe par un pipeline, car si on passait directement par une commande dans le terminal avec `pdal merge`,
-on n'aurait pas pu contrôler le mode d'écriture en compression laszip.
+C'est pour cette raison que l'on passe par un pipeline, car si on passait directement par une commande dans le terminal avec `pdal merge`, on n'aurait pas pu contrôler le mode d'écriture en compression laszip.
 
-Ensuite, une fois que tout est mis en place, on peut procéder la fusion des tuiles en exécutant la commande suivante dans le terminal dans lequel conda a précédemment été activé.
+Ensuite, une fois que tout est mis en place, on peut procéder à la fusion des tuiles en exécutant la commande suivante dans le terminal dans lequel conda a précédemment été activé.
 Bien entendu, il faut avoir navigué dans le terminal pour rejoindre le dossier dans lequel se trouve `merge_pipeline.json`.
 
 ```
@@ -167,7 +166,7 @@ Le fichier résultant devrait faire plusieurs dizaines de Go.
 
 ## Installer le plug-in QGIS Whitebox Tools
 
-Cette étape n'est pas la plus facile, le plug-in Whitebox Tools ne fonctionne pas tout à fait comme les autres plug-in QGIS.
+Cette étape n'est pas la plus facile, le plug-in Whitebox Tools ne fonctionnant pas tout à fait comme les autres plug-in QGIS.
 Il s'agit d'un outil initialement en ligne de commande, et pour s'en servir dans QGIS il faut d'abord l'installer en ligne de commande.
 
 Commencez par installer le plug-in sur QGIS :
@@ -180,7 +179,7 @@ Installons donc l'exécutable Whitebox Tools.
 
 Rendez-vous sur le site de la [Whitebox Geospatial Incorporated](https://www.whiteboxgeo.com/download-whiteboxtools/).
 
-Vous allez croire en premier lieu que c'est payant, mais en fait n'ayez crainte, vous pouvez bien le télécharger pour 0$.
+Vous allez croire en premier lieu que c'est payant, mais en fait n'ayez crainte, vous pouvez bien le télécharger pour 0$, comme indiqué en [Figure 7](#fig-7).
 
 ![site whitebox](/images/download_exe_whitebox.png){: .fig #fig-7}  
 _Figure 7 : Téléchargement de l'outil WhiteboxTools_
@@ -233,7 +232,7 @@ Vérifiez que l'outil est bien installé en tapant :
 
 Si cela vous affiche la version, c'est que c'est bon !
 
-Sur MacOS, ce popup risque de s'afficher :
+Sur MacOS, le popup de la [Figure 9](#fig-9) risque de s'afficher.
 
 ![gatekeeper](/images/mac_gatekeeper.png){: .fig #fig-9}  
 _Figure 9 : Blocage sur MacOS de l'utilisation d'un logiciel extérieur_
@@ -249,10 +248,11 @@ Cliquez sur "Autoriser quand même".
 
 Ensuite, relancez
 ```bash
- ~/WhiteboxTools/WhiteboxTools_darwin_amd64/WBT/whitebox_tools --version
+ ~/WhiteboxTools/WhiteboxTools_[version]/WBT/whitebox_tools --version
 ```
 
-Et cette fois vous aurez :
+Et cette fois vous aurez le popup indiqué en [Figure 11](#fig-11).
+
 ![gatekeeper autorisé](/images/mac_autorise.png){: .fig #fig-11}  
 _Figure 11 : Blocage d'un logiciel extérieur avec possibilité de contournement_
 
@@ -265,7 +265,7 @@ Ensuite, allez dans QGIS.
 Onglet "Préférences" > "Options"  
 Option "Traitements" > "Fournisseur de traitement" > "WhiteboxTools executable"
 
-Dans la zone prévue à cet effet, renseignez le chemin d'accès à l'exécutable WhiteboxTools.
+Dans la zone prévue à cet effet, renseignez le chemin d'accès à l'exécutable WhiteboxTools, comme indiqué en [Figure 12](#fig-12).
 
 ![exe whitebox](/images/path_exe_whitebox.png){: .fig #fig-12}  
 _Figure 12 : Paramétrage du chemin d'accès de l'exécutable WhiteboxTools dans QGIS_
@@ -285,7 +285,9 @@ Dans la boîte à outils QGIS, cherchez l'outil `LidarTINGridding`.
 ![lidartingridding](/images/tingridding_parametres.png){: .fig #fig-13}  
 _Figure 13 : Paramètres du traitement LidarTINGridding_
 
-Sélectionnez votre couche Lidar fusionnée précédemment.
+Suivez les paramètres indiqués sur la [Figure 13](#fig-13).
+
+Commencez donc par sélectionner votre couche Lidar fusionnée précédemment.
 
 On souhaite produire un MNT, c’est-à-dire une surface qui représente uniquement le terrain,
 sans la végétation ni les bâtiments. Pour cela, il faut interpoler les altitudes des points LiDAR,
@@ -302,6 +304,7 @@ Enfin, pour obtenir un MNT précis, il est important de filtrer les points qui n
 Les données LiDAR sont classifiées selon différents types d’objets, et certaines classes doivent être exclues
 pour éviter d’intégrer des éléments indésirables dans le modèle.  
 Ici, on exclut les classes :
+
 ```
 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18
 ```
@@ -314,13 +317,11 @@ Vous pouvez consulter les correpondances entre les codes et les classe sur [ce d
 
 ---
 
-Une fois ces paramètres configurés, vous pouvez exécuter le traitement en créant une couche temporaire, ou bien en indiquant directement
-l'emplacement de sauvegarde du fichier de résultat. Nous vous conseillons de l'enregistrer directement car le traitement va être
-un peu long (1h30 pour 36 dalles, fichier .laz global de 14 Go), et de cette manière vous vous assurez de ne pas perdre le résultat en fermant QGIS par inadvertance à la fin.
+Une fois ces paramètres configurés, vous pouvez exécuter le traitement en créant une couche temporaire, ou bien en indiquant directement l'emplacement de sauvegarde du fichier de résultat. Nous vous conseillons de l'enregistrer directement car le traitement va être un peu long (1h30 pour 36 dalles, fichier .laz global de 14 Go), et de cette manière vous vous assurez de ne pas perdre le résultat en fermant QGIS par inadvertance à la fin.
 
 ---
 
-Une fois le traitement terminé, QGIS vous affichera probablement ce message :
+Une fois le traitement terminé, QGIS vous affichera probablement le message indiqué en [Figure 14](#fig-14)
 
 ![erreur reproj](/images/erreur_reproj.png){: .fig #fig-14}  
 _Figure 14 : Erreur de reprojection du MNT_
