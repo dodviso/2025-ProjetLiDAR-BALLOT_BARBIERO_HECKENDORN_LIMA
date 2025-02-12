@@ -366,3 +366,5 @@ Et voilà, à vous de jouer !
 
 ---
 **Auteurs** : Doris Ballot, Audrey Barbiero, Robin Heckendorn, Lucas Lima.
+
+*Ce tutoriel a été réalisé dans le cadre de l'UE 901_22 : introduction au traitement de données LiDAR, M2 SIGMA 2024-2025.*
