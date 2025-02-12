@@ -6,12 +6,7 @@ authors: Doris Ballot, Audrey Barbiero, Robin Heckendorn, Lucas Lima
 ---
 
 
-<<<<<<< HEAD
 # Tutoriel LiDAR : Génération d'un MNT avec Whitebox Tools sur QGIS
-=======
-
-# Tutoriel LiDAR : Génération d'un MNT avec Whitebox Tools sur QGIS 
->>>>>>> e05f59bff93435cee07c851214bff66596953bc2
 
 Bienvenue dans ce tutoriel LiDAR !
 Nous allons voir comment traiter une grosse quantité de dalles LiDAR, pour pouvoir générer un MNT (Modèles numérique de terrain) à une échelle communale.
@@ -330,7 +325,7 @@ Une fois le traitement terminé, QGIS vous affichera probablement ce message :
 ![erreur reproj](/images/erreur_reproj.png){: .fig #fig-14}  
 _Figure 14 : Erreur de reprojection du MNT_
 
-_Whitebox Tools_ ne conserve pas le système de projection initial des données LiDAR, et donc le MNT en sortie est sans projection, d'où le terme 'unnamed'.
+Whitebox Tools ne conserve pas le système de projection initial des données LiDAR, et donc le MNT en sortie est sans projection, d'où le terme 'unnamed'.
 
 Pour résoudre ce problème définitivement, commencez par assigner la projection que vous souhaitez au MNT (ici 2154).
 
