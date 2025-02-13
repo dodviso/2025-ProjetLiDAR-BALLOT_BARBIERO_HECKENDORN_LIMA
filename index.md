@@ -24,15 +24,10 @@ Tous les matériaux nécéssaires à ce tutoriel sont disponibles sur le dépôt
 
 ## Table des matières
 
-
-- [Tutoriel LiDAR : Génération d'un MNT avec Whitebox Tools sur QGIS](#tutoriel-lidar--génération-dun-mnt-avec-whitebox-tools-sur-qgis)
-  - [Table des matières](#table-des-matières)
-  - [Télécharger les données LiDAR](#télécharger-les-données-lidar)
-  - [Fusionner toutes les dalles LiDAR](#fusionner-toutes-les-dalles-lidar)
-  - [Installer le plug-in QGIS Whitebox Tools](#installer-le-plug-in-qgis-whitebox-tools)
-    - [Installation pour Windows](#installation-pour-windows)
-    - [Installation pour MacOS/Linux](#installation-pour-macoslinux)
-  - [Production d'un MNT avec Whitebox Tools](#production-dun-mnt-avec-whitebox-tools)
+- [Télécharger les données LiDAR](#télécharger-les-données-lidar)
+- [Fusionner toutes les dalles LiDAR](#fusionner-toutes-les-dalles-lidar)
+- [Installer le plug-in QGIS Whitebox Tools](#installer-le-plug-in-qgis-whitebox-tools)
+- [Production d'un MNT avec Whitebox Tools](#production-dun-mnt-avec-whitebox-tools)
 
 ---
 
