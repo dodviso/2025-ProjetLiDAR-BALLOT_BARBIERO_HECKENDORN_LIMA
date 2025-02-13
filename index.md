@@ -8,7 +8,7 @@ description: "Génération d'un MNT avec Whitebox Tools sur QGIS"
 # Tutoriel LiDAR : Génération d'un MNT avec Whitebox Tools sur QGIS
 
 Bienvenue dans ce tutoriel LiDAR !
-Nous allons voir comment traiter une grosse quantité de dalles LiDAR, pour pouvoir générer un MNT (Modèles Numérique de Terrain) à une échelle communale.
+Nous allons voir comment traiter une grosse quantité de dalles LiDAR, pour pouvoir générer un MNT (Modèle Numérique de Terrain) à une échelle communale.
 
 Un Modèle Numérique de Terrain est une représentation du relief sous forme de données altimétriques. Contrairement à un modèle qui inclurait les bâtiments ou la végétation, un MNT ne représente que le sol nu. Il peut est utilisé pour l'analyse du relief, la gestion des risques naturels, la modélisation hydraulique ou encore la planification d’aménagements.
 
