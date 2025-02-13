@@ -8,7 +8,7 @@ description: "Génération d'un MNT avec Whitebox Tools sur QGIS"
 # Tutoriel LiDAR : Génération d'un MNT avec Whitebox Tools sur QGIS
 
 Bienvenue dans ce tutoriel LiDAR !
-Nous allons voir comment traiter une grosse quantité de dalles LiDAR, pour pouvoir générer un MNT (Modèles numérique de terrain) à une échelle communale.
+Nous allons voir comment traiter une grosse quantité de dalles LiDAR, pour pouvoir générer un MNT (Modèles Numérique de Terrain) à une échelle communale.
 
 Un Modèle Numérique de Terrain est une représentation du relief sous forme de données altimétriques. Contrairement à un modèle qui inclurait les bâtiments ou la végétation, un MNT ne représente que le sol nu. Il peut est utilisé pour l'analyse du relief, la gestion des risques naturels, la modélisation hydraulique ou encore la planification d’aménagements.
 
@@ -24,10 +24,14 @@ Tous les matériaux nécéssaires à ce tutoriel sont disponibles sur le dépôt
 
 ## Table des matières
 
-1. [Télécharger les données LiDAR](#télécharger-les-données-lidar)
-2. [Fusionner toutes les dalles LiDAR](#fusionner-toutes-les-dalles-lidar)
-3. [Installer le plug-in QGIS Whitebox Tools](#installer-le-plug-in-qgis-whitebox-tools)
-4. [Production d'un MNT](#production-dun-mnt-avec-whitebox-tools)
+- [Tutoriel LiDAR : Génération d'un MNT avec Whitebox Tools sur QGIS](#tutoriel-lidar--génération-dun-mnt-avec-whitebox-tools-sur-qgis)
+  - [Table des matières](#table-des-matières)
+  - [Télécharger les données LiDAR](#télécharger-les-données-lidar)
+  - [Fusionner toutes les dalles LiDAR](#fusionner-toutes-les-dalles-lidar)
+  - [Installer le plug-in QGIS Whitebox Tools](#installer-le-plug-in-qgis-whitebox-tools)
+    - [Installation pour Windows](#installation-pour-windows)
+    - [Installation pour MacOS/Linux](#installation-pour-macoslinux)
+  - [Production d'un MNT avec Whitebox Tools](#production-dun-mnt-avec-whitebox-tools)
 
 ---
 
@@ -289,7 +293,7 @@ _Figure 13 : Paramètres du traitement LidarTINGridding_
 
 Suivez les paramètres indiqués sur la [Figure 13](#fig-13).
 
-Commencez donc par sélectionner votre couche Lidar fusionnée précédemment.
+Commencez donc par sélectionner votre couche LiDAR fusionnée précédemment.
 
 On souhaite produire un MNT, c’est-à-dire une surface qui représente uniquement le terrain,
 sans la végétation ni les bâtiments. Pour cela, il faut interpoler les altitudes des points LiDAR,
